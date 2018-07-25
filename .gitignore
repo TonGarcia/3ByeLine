@@ -95,3 +95,45 @@ $RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+SuperAdminMulti/dist
+SuperAdminMulti/tmp
+
+# dependencies
+SuperAdminMulti/node_modules
+
+# IDEs and editors
+SuperAdminMulti/.idea
+SuperAdminMulti/.project
+SuperAdminMulti/.classpath
+SuperAdminMulti/.c9/
+*.launch
+SuperAdminMulti/.settings/
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+SuperAdminMulti/.sass-cache
+SuperAdminMulti/connect.lock
+SuperAdminMulti/coverage/*
+SuperAdminMulti/libpeerconnection.log
+SuperAdminMulti/npm-debug.log
+SuperAdminMultit/estem.log
+SuperAdminMulti/typings
+
+# e2e
+SuperAdminMulti/e2e/*.js
+SuperAdminMulti/e2e/*.map
+
+#System Files
+SuperAdminMulti/.DS_Store
+SuperAdminMulti/Thumbs.db
