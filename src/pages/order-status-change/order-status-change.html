@@ -1,0 +1,30 @@
+<!--
+  Generated template for the OrderStatusChangePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Status Change</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+
+		<ion-item style="padding-top:10px" class="option">
+            <ion-label>Category</ion-label>
+
+            <ion-select [(ngModel)]="category.it.status" name="status">
+            <ion-option *ngFor="let item of restaurantName.items" value="{{item.id}}">{{item.name}}</ion-option>
+            </ion-select>
+         </ion-item>
+		 
+		 <button ion-button block color="secondary" (click)="saveStatus(category)">Save status</button>
+
+</ion-content>

@@ -1,0 +1,42 @@
+<!--Theme Appearance animation (Fade In)-->
+<ion-content has-header>
+
+
+    <ion-grid no-padding *ngIf="data != null">
+        <ion-row>
+            <ion-col col-12>
+	
+			
+			
+                <ion-list no-margin *ngFor="let item of data.items;let i = index;">
+                    <ion-item border no-lines [ngClass]="animateClass" (click)="getOrderDetails(item.id)" >
+					<h2 item-title style = "background-color:#4AF3A7;"><i style = "color:white;">Order Date: {{item.timeStamp | date}}</i></h2>
+					<ion-item no-lines *ngFor="let post of item.items" class="items"  
+					style = "background-color:#D1F3E3;">
+						
+						
+						<ion-avatar item-left>
+                            <img [src]="post.image" alt="{{post.name}}" />
+                        </ion-avatar>
+						
+							 <h4 item-title>Name: {{post.name}}</h4>
+							 <h4 item-title>Price: {{post.price}}$</h4>
+							 <h4 item-title>Quantity: {{post.quantity}}</h4>
+							 
+						 </ion-item>
+					
+                        <h2  item-title style ="background-color:#D1F3E3;text-align:right;"><b>Status:{{item.status}}</b></h2>
+						
+						 <h2  item-title style ="background-color:#D1F3E3;text-align:right;"><b>Total:{{item.total}}$</b></h2>
+         
+         <hr style="border-height: 5px;">
+		 <!---
+                        <h2 item-title>{{item.title}}</h2>
+                        
+						-->
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

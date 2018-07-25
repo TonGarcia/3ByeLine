@@ -1,0 +1,61 @@
+<!--
+  Generated template for the CustomerDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>customer-details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding >
+
+
+  <div padding background-size id="elastic-header" style = "height:100%;" [ngStyle]="{'background-image': 'url(' + product.background + ')'}">
+
+	
+	<ion-thumbnail item-left *ngIf="product.image != null">
+						
+							
+                            <img [src]="product.image" alt="{{product.title}}" />
+							
+							
+                        </ion-thumbnail>
+	
+						  <ion-thumbnail item-left *ngIf="product.image == null">
+						
+							<img [src]="product.image_url" alt="{{product.title}}" />
+                            
+							
+							
+                        </ion-thumbnail>
+	
+    <!-- Parallx Title -->
+	
+    <h2 text-center parallax-title *ngIf="product.title != null">{{product.title}}</h2>
+	
+    <!-- Parallx Subtitle -->
+	
+    <h3 text-center parallax-subtitle *ngIf="product.address != null">Address: {{product.address}}</h3>
+	<h3 text-center parallax-subtitle *ngIf="product.phone != null">Phone: {{product.phone}}</h3>
+	<h3 text-center parallax-subtitle *ngIf="product.timeStamp != null">Date: {{product.timeStamp | date}}</h3>
+	<h3 text-center parallax-subtitle *ngIf="product.timeStamp != null">Email: {{product.email}}</h3>
+	
+	
+	
+	
+	
+	
+  </div>
+  
+ 
+  
+
+ 
+
+</ion-content>

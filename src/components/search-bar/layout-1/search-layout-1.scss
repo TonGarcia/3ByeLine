@@ -1,0 +1,32 @@
+/*  #Style Search - Simple
+===========================================*/
+search-bar-layout-1 {
+  [card-background-page] {
+    ion-card {
+      position: relative;
+      height: 215px;
+      border-radius: $border-radius;
+      @include darkening-blend-mode;
+
+      img {
+        min-height: 215px;
+      }
+    }
+
+    [card-title] {
+      position: absolute;
+      top: 22px;
+      left: 22px;
+      z-index: 9;
+      color: theme-colors('textColors', 'secondaryBase') !important;
+    }
+
+    [card-subtitle] {
+      position: absolute;
+      bottom: 16px;
+      left: 22px;
+      right: 15%;
+      color: theme-colors('textColors', 'secondaryBase') !important;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+<!-- Themes Login + logo 2 -->
+<ion-content has-header style ="background-image:url('assets/images/logo/modern.jpg')">
+  <ion-grid no-padding *ngIf="data != null">
+    <ion-row padding-horizontal align-self-center>
+      <ion-col align-self-end col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+        <!---Logo-->
+        
+        <!---Logo Subtitle-->
+        <h2 login-subtitle no-margin>{{data.subtitle}}</h2>
+        <!---Logo Title-->
+        <h1 ion-text color="accent" login-title no-margin>{{data.title}}</h1>
+      </ion-col>
+      <ion-col align-self-start col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+        <!---Input field username-->
+        <ion-item no-padding margin-top style = "background:none;">
+          <ion-label color="dark" stacked>{{data.labelUsername}}</ion-label>
+          <ion-input required type="text" placeholder="{{data.username}}" [(ngModel)]="form.email" name = "email"></ion-input>
+        </ion-item>
+        <!---Input field password-->
+        <ion-item no-padding style = "background:none;">
+          <ion-label color="dark" stacked>{{data.labelPassword}}</ion-label>
+          <ion-input required type="password" placeholder="{{data.password}}" [(ngModel)]="form.password" name = "password"></ion-input>
+        </ion-item>
+      </ion-col>
+	
+      <!---Share Section-->
+      <ion-col align-self-end bottom-form col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+        <!---Login button-->
+		
+		<button ion-button default-button full text-capitalize (click)="login()">{{data.login}}</button>
+        <!---Facebook button-->
+        <button ion-button default-button full color="secondary" text-capitalize block color="secondary"
+        (click)="facebookLogin()">Login with Facebook</button>
+      </ion-col>
+      <ion-col col-6 col-sm-6 col-md-6>
+        <p text-right>Don't have account?</p>
+      </ion-col>
+      <ion-col col-6 col-sm-6 col-md-6>
+        <button ion-button button-clear clear text-capitalize (click)="goToRegister()">{{data.register}}</button>
+      </ion-col>
+      <!---End Share Section-->
+    </ion-row>
+  </ion-grid>
+</ion-content>

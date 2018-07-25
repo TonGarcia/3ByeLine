@@ -1,0 +1,33 @@
+/*  #Style Register + Image
+================================================*/
+
+register-layout-2 {
+    .scroll-content {
+      margin-top: 0 !important;
+    }
+    .back-button,
+    .toolbar-title {
+      color: theme-colors('textColors', 'secondaryBase') !important;
+    }
+    ion-grid,
+    ion-row {
+        height: 100%;
+    }
+    [stacked] {
+        font-size: 10px !important;
+    }
+
+    // Settings Background Size
+    [background-size] {
+        height: 40%;
+        position: relative;
+        @include darkening-blend-mode;
+    }
+
+    // Header Title
+    [header-title] {
+        position: absolute;
+        bottom: 10px;
+        left: 25px;
+    }
+}

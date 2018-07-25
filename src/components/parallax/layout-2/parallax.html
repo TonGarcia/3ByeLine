@@ -1,0 +1,43 @@
+<!--- Theme Parallax - Profile -->
+
+<ion-header header-ios>
+  <ion-navbar transparent [ngClass]="{'active':isClassActive()}">
+    <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>My profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!-- Content -->
+<ion-content elastic-header>
+<!--
+  <div padding background-size id="elastic-header" [ngStyle]="{'background-image': 'url(' + headerImage + ')'}">
+    <ion-thumbnail *ngIf="data != null">
+      <img [src]="data[0].avatar" />
+    </ion-thumbnail>
+	-->
+    <!-- Parallx Title -->
+	<!--
+    <h2 text-center parallax-title *ngIf="data != null">{{data[0].title}}</h2>
+	-->
+    <!-- Parallx Subtitle -->
+	<!--
+    <h3 text-center parallax-subtitle *ngIf="data != null">{{data[0].subtitle}}</h3>
+  </div>
+  -->
+  
+  <!--
+  <ion-list *ngIf="data != null">
+    <ion-item border no-lines *ngFor="let item of data.items;let i = index" (click)="onEvent('onItemClick', item)">
+      <ion-avatar item-start>
+        <img [src]="item.avatar" />
+      </ion-avatar>
+      <h2 item-title>{{item.title}}</h2>
+      <h3 item-subtitle text-wrap>{{item.subtitle}}</h3>
+      <button text-capitalize button-clear ion-button item-end clear>{{item.button}}</button>
+
+    </ion-item>
+  </ion-list>
+  -->
+</ion-content>

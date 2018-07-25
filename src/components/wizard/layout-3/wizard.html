@@ -1,0 +1,21 @@
+<!--Theme Wizard Big Image With Text -->
+<ion-slides #wizardSlider (ionSlideDidChange)="slideHasChanged()" pager="true" *ngIf="data != null">
+    <ion-slide background-size padding *ngFor="let item of data.items;" [ngStyle]="{'background-image': 'url(' + item.backgroundImage + ')'}">
+        <!--Wizard Content -->
+        <div wizard-content>
+            <!--Wizard Subitem -->
+            <h3 wizard-subtitle no-margin text-left>{{item.subtitle}}</h3>
+            <!--Wizard Title -->
+            <h1 wizard-title no-margin text-left>{{item.title}}</h1>
+        </div>
+    </ion-slide>
+</ion-slides>
+<!--Button section-->
+<div *ngIf="data != null">
+    <button button-wizard text-center text-capitalize button-clear clear ion-button (click)="changeSlide(1)" *ngIf="next">
+        {{data.btnNext}}
+    </button>
+    <button button-wizard text-center text-capitalize button-clear clear ion-button (click)="onEvent('onFinish')" *ngIf="finish">
+        {{data.btnFinish}}
+    </button>
+</div>

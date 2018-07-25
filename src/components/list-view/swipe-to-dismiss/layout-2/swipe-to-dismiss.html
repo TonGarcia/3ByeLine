@@ -1,0 +1,55 @@
+<!-- Themes Swipe To Dismiss - Products + CTA -->
+<ion-grid no-padding *ngIf="data != null">
+  <ion-row>
+    <ion-col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12>
+      <!-- Header top Swipe To Dismiss Products + CTA -->
+
+      <!-- Content -->
+      <ion-list no-margin>
+	    
+        <ion-item-sliding *ngFor="let item of data.items" #slidingItem>
+          <ion-item border no-lines >
+            <!-- Images -->
+            <ion-thumbnail item-start (click)="getItems(item.id)">
+              <img src="{{item.image}}">
+            </ion-thumbnail>
+            <!-- Title -->
+            <h2 item-title (click)="getItems(item.id)">{{item.title}}</h2>
+            <!-- Subtitle -->
+            <p item-subtitle text-wrap (click)="getItems(item.id)">{{item.subtitle}}</p>
+            <!-- Badge -->
+
+			<ion-buttons right >
+					<button style="background-color:white;" (click)="editCategory(item)">
+						<ion-icon name="construct" style="position:relative; font-size:2em;color:green;"  >
+							<span style="position:absolute; top:-.3em; left:.5em; font-size:15px !important"></span>
+						</ion-icon>
+					</button>
+					<button style="background-color:white;" (click)="deleteCategory(item.id)">
+						<ion-icon name="trash" style="position:relative; font-size:2em;color:green;"  >
+							<span style="position:absolute; top:-.3em; left:.5em; font-size:15px !important"></span>
+						</ion-icon>
+					</button>
+				</ion-buttons>
+			
+            <ion-badge text-uppercase class="badge-light" item-end (click)="getItems(item.id)">{{item.ionBadge}}</ion-badge>
+			
+          </ion-item>
+		  
+		  			
+		  
+
+          <!--Action Button-->
+		  <!---
+          <ion-item-options no-lines>
+            
+            <button ion-button text-capitalize (click)="delete(item)">
+              {{item.delate}}
+            </button>
+          </ion-item-options>
+		  -->
+        </ion-item-sliding>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>

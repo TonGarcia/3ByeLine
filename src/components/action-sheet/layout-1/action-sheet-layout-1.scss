@@ -1,0 +1,50 @@
+/*  #Style Parallax Basic
+===========================================*/
+action-sheet-layout-1 {
+  @include settingAnimationHeader;
+
+  [button-action-shit] {
+    z-index: 99999;
+    right: 16px;
+    top: 56px;
+  }
+
+  .scroll-content {
+    top: -56px;
+  }
+
+  [background-size] {
+    height: 66%;
+    position: relative;
+  }
+
+  ion-item-divider {
+    .label-ios,
+    .label-md {
+      margin: 0 !important;
+    }
+
+    ion-badge {
+      position: absolute;
+      bottom: -1px;
+      right: 5px;
+    }
+  }
+  // New Category
+  [new-category] {
+    display: block;
+    font-size: 11px;
+    color: theme-colors('textColors', 'accent') !important;
+    margin-bottom: 5px;
+  }
+  // Parallax Title
+  [parallax-title] {
+    color: theme-colors('textColors', 'accentDark') !important;
+    font-size: font-size-text('h2') !important;
+  }
+  // Parallax Title
+  [parallax-subtitle] {
+    color: theme-colors('textColors', 'secondary') !important;
+    font-size: font-size-text('h3') !important;
+  }
+}

@@ -1,0 +1,14 @@
+<!--Theme Google Card - Full Image Cards-->
+<ion-grid *ngIf="data != null">
+    <ion-row card-background-page>
+        <ion-col no-padding col-12 col-md-12 col-lg-6 *ngFor="let item of data.items;let i = index">
+            <ion-card background-size text-left (click)="onEvent('onItemClick', item.title, $event)"
+            [ngStyle]="{'background-image': 'url(' + item.backgroundImage + ')'}">
+                <!-- Card Title-->
+                <div text-wrap card-title>{{item.title}}</div>
+                <!-- Card Subtitle-->
+                <div text-wrap card-subtitle>{{item.info}}</div>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+</ion-grid>

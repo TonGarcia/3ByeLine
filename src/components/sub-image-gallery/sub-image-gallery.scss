@@ -1,0 +1,13 @@
+/*  # Style Image Sub-Gallery for Thumb grid
+=======================================================*/
+
+sub-image-gallery {
+    ion-card {
+        position: relative;
+        height: 120px;
+        width: calc(100% - 6px) !important;
+        margin: 6px 3px 0 3px !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+}

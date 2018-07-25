@@ -1,0 +1,47 @@
+<!-- Theme Example- List big image -->
+<ion-content has-header>
+  <ion-grid no-padding *ngIf="data != null">
+    <ion-row>
+      <ion-col col-12>
+        <!-- Header List Big Image -->
+        <ion-list-header header-section>
+          <h1 header-title text-capitalize>{{data.header}}</h1>
+        </ion-list-header>
+        <ion-list>
+          <ul collapsible no-margin no-padding>
+            <li *ngFor="let group of data.items;">
+              <!-- List big image Header -->
+              <div collapsible-header (click)="toggleGroup(group)">
+                <ion-item border no-lines>
+                  <ion-thumbnail item-start>
+                    <img [src]="group.image" alt="{{group.title}}" />
+                  </ion-thumbnail>
+                  <h2 item-title>{{group.title}}</h2>
+                  <h3 item-subtitle text-wrap>{{group.description}}</h3>
+                </ion-item>
+              </div><!-- End List big image Header -->
+              <!-- List big image Body -->
+              <div item-accordion [ngClass]="{'active': isGroupShown(group) }" [hidden]="!isGroupShown(group)">
+                <ion-item border no-margin no-lines *ngFor="let item of group.expandItems;"
+                (click)="onEvent('onItemClick', item, $event)">
+                  <!-- Avatar -->
+                  <ion-avatar item-left item-start>
+                    <img [src]="item.image" alt="{{item.title}}" />
+                  </ion-avatar>
+                  <!-- Title -->
+                  <h2 subitem-title text-wrap>{{item.title}}</h2>
+                  <!-- Subtitle -->
+                  <h3 subitem-subtitle text-wrap>{{item.description}}</h3>
+                  <!-- Details item-->
+                  <div item-content subitem-subtitle>
+                    {{item.details}}
+                </div>
+                </ion-item>
+              </div><!-- End List big image Body -->
+            </li>
+          </ul>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

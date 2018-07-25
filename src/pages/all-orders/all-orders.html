@@ -1,0 +1,78 @@
+<!--
+  Generated template for the AllOrdersPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+  
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>All Orders</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content has-header>
+
+
+    <ion-grid no-padding>
+        <ion-row>
+            <ion-col col-12>
+	
+			
+			
+                <ion-list no-margin *ngFor="let it of myOrderList;let i = index;">
+				
+					 <ion-list no-margin>
+						  <ion-item border no-lines [ngClass]="animateClass" (click)="getOrderDetails(it.id)" >
+					<h2 item-title style = "background-color:#4AF3A7;"><i style = "color:white;">Order Date: {{it.timeStamp | date}}</i></h2>
+					<ion-item no-lines *ngFor="let post of it.items" class="items"  
+					style = "background-color:#D1F3E3;">
+						
+						
+						<ion-avatar item-left>
+                            <img [src]="post.image" alt="{{post.name}}" />
+                        </ion-avatar>
+						
+							 <h4 item-title>Name: {{post.name}}</h4>
+							 <h4 item-title>Price: {{post.price}}$</h4>
+							 <h4 item-title>Quantity: {{post.quantity}}</h4>
+							 
+						 </ion-item>
+					
+                        <h2  item-title style ="background-color:#D1F3E3;text-align:right;"><b>Status:{{it.status}}</b></h2>
+						
+						 <h2  item-title style ="background-color:#D1F3E3;text-align:right;"><b>Total:{{it.total}}$</b></h2>
+         
+         <hr style="border-height: 5px;">
+		 <!---
+                        <h2 item-title>{{item.title}}</h2>
+                        
+						-->
+						</ion-item>
+				</ion-list>
+				
+                   <ion-buttons right >
+					<button style="background-color:white;" (click)="editStatus(it)">
+						<ion-icon name="construct" style="position:relative; font-size:2em;color:green;"  >
+							<span style="position:absolute; top:-.3em; left:.5em; font-size:15px !important"></span>
+						</ion-icon>
+					</button>
+					<button style="background-color:white;" (click)="deleteOrder(it.id)">
+						<ion-icon name="trash" style="position:relative; font-size:2em;color:green;"  >
+							<span style="position:absolute; top:-.3em; left:.5em; font-size:15px !important"></span>
+						</ion-icon>
+					</button>
+				</ion-buttons>
+				
+				
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

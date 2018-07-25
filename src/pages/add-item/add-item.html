@@ -1,0 +1,98 @@
+<!--
+  Generated template for the AddItemPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+ 	<ion-navbar>
+	 <button ion-button menuToggle>
+		  <ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Add Item</ion-title>
+		
+		<ion-buttons right>
+			<button style="background-color:white;" (click)="goToCart()">
+				<ion-icon name="ios-cart-outline" style="position:relative; font-size:2em;color:green;"  >
+					<span style="position:absolute; top:-.3em; left:.5em; font-size:15px !important"></span>
+				</ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+ <div class="margin">
+      <form #f="ngForm">
+         <ion-list>
+            <ion-item>
+               <ion-label floating>Name* </ion-label>
+               <ion-input required type="text" [(ngModel)]="form.name" name="name"></ion-input>
+            </ion-item>
+			<ion-item>
+               <ion-label floating>Available </ion-label>
+               <ion-input required type="text" [(ngModel)]="form.available" name="avialable"></ion-input>
+            </ion-item>
+			
+			<ion-item>
+               <ion-label floating>Category </ion-label>
+               <ion-input required type="text" [(ngModel)]="form.category" name="category"></ion-input>
+            </ion-item>
+			
+			<ion-item>
+               <ion-label floating>Description </ion-label>
+               <ion-input required type="text" [(ngModel)]="form.description" name="description"></ion-input>
+            </ion-item>
+			
+			<ion-item>
+               <ion-label floating>Image </ion-label>
+               <ion-input required type="text" [(ngModel)]="form.image" name="image"></ion-input>
+            </ion-item>
+			
+			<ion-item>
+               <ion-label floating>Percent </ion-label>
+               <ion-input required type="text" [(ngModel)]="form.percent" name="percent"></ion-input>
+            </ion-item>
+			
+			<ion-item>
+               <ion-label floating>Price </ion-label>
+               <ion-input required type="text" [(ngModel)]="form.price" name="price"></ion-input>
+            </ion-item>
+			
+			<ion-item>
+               <ion-label floating>Real Price </ion-label>
+               <ion-input required type="text" [(ngModel)]="form.real_price" name="real_price"></ion-input>
+            </ion-item>
+			
+			<ion-item>
+               <ion-label floating>Stock </ion-label>
+               <ion-input required type="text" [(ngModel)]="form.stock" name="stock"></ion-input>
+            </ion-item>
+			
+            <ion-item style="padding-top:10px" class="option">
+               <ion-label>category</ion-label>
+               <ion-select [(ngModel)]="form.categories"  name="categories">
+               <ion-option *ngFor="let item of restaurantCategoryName" value="{{item.id}}">{{item.name}}</ion-option>
+               </ion-select>
+            </ion-item>
+       
+       
+            <ion-item>
+               <ion-thumbnail *ngIf="downloadURL != null">
+                  <img src="{{downloadURL}}">
+               </ion-thumbnail>
+               <input type="file" name="Choose File" (change)="onChange($event)">
+            </ion-item>
+         </ion-list>
+      </form>
+        <div class="error-message">
+           <ion-label color="danger" text-wrap>{{errorMessage}}</ion-label>
+        </div>
+      <button ion-button block color="secondary" [disabled]="disableSubmit" (click)="addProduct()">Save</button>
+   </div>
+
+
+</ion-content>

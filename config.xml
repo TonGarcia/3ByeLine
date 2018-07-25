@@ -90,7 +90,7 @@
         <variable name="APP_NAME" value="ByeLine" />
     </plugin>
     <plugin name="phonegap-plugin-push" spec="^2.2.3">
-        <variable name="SENDER_ID" value="692778962096" />
+        <variable name="SENDER_ID" value="645927991461" />
     </plugin>
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
     <plugin name="cordova-plugin-mauron85-background-geolocation" spec="^2.3.5" />

@@ -1,0 +1,59 @@
+/*  #Style Search - Field + Header
+===========================================*/
+search-bar-layout-2 {
+  ion-navbar {
+    z-index: 9999;
+    position: relative;
+  }
+  .back-button,
+  .toolbar-title {
+    color: theme-colors('textColors', 'secondaryBase') !important;
+  }
+
+  ion-toolbar {
+    position: absolute;
+    top: 0;
+
+    .searchbar-ios .searchbar-input {
+      background-color: #f7f7f7 !important;
+    }
+  }
+
+  ion-content {
+    top: 104px;
+    &.content-ios {
+      top: 91px;
+    }
+  }
+  // Settings Big Image
+  [container-hearder-image] {
+    min-height: 160px!important;
+    @include darkening-blend-mode;
+    position: relative;
+
+    [search-bar-bcg] {
+      position: absolute;
+      z-index: 2;
+      right: 8px;
+      left: 8px;
+      bottom: 8px;
+
+      .searchbar-input {
+        border-radius: 8px;
+      }
+    }
+  }
+  // Settings Images Border Radius
+  ion-thumbnail img {
+    border-radius: $border-radius;
+  }
+
+  .input-wrapper {
+    display: block;
+  }
+
+  ion-badge {
+    right: 0;
+    bottom: 0;
+  }
+}

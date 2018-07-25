@@ -1,0 +1,28 @@
+<!-- Themes Swipe To Dismiss - Full width image -->
+<ion-grid no-padding *ngIf="data != null">
+  <ion-row>
+    <ion-col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 align-self-end>
+      <ion-list padding no-margin>
+        <ion-item-sliding margin-bottom *ngFor="let item of data.items" #slidingItem>
+		<!--
+          <ion-item no-lines background-size (click)="onEvent('onItemClick', item.title, $event)"
+		  -->
+		  <ion-item no-lines background-size (click)="goToItem(item)" [ngStyle]="{'background-image': 'url(' + item.image + ')'}">
+            <div title-block>
+              <!-- Subtitle -->
+              <p item-subtitle>{{item.subtitle}}</p>
+              <!-- Title -->
+              <h1 header-title text-wrap>{{item.title}}</h1>
+            </div>
+          </ion-item>
+          <!---Action Button-->
+          <ion-item-options>
+            <button ion-button text-capitalize transparent padding (click)="delete(item)">
+              {{item.delate}}
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>

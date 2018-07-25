@@ -1,0 +1,64 @@
+.order-info{
+
+.items{
+    ion-item{
+        border-bottom: 1px solid rgba(206, 206, 206, 0.8);
+    }
+}
+
+ion-thumbnail{
+    img{
+    height: 80px;
+    width: 80px;
+    }
+}
+
+.margin{
+	
+}
+
+.item {
+    padding-left: 0;  
+}
+.item.item-block .item-inner {
+    border-bottom: 0.55px solid #f2f2f2;
+}
+.label-ios, .label-md, .label-wp {
+    margin: 8px 8px 8px 16px;
+}
+h2 {
+    font-size: 15px;
+}
+h1 {
+    margin: 0 0 15px 0;
+    font-size: 18px;
+    font-weight: normal;
+    color: black;
+}
+.list-ios, .list-md, list-wp {
+    margin: 0;
+}
+ion-col {
+    padding: 0;
+}
+
+.label{
+    ion-label{
+      font-size:15px;
+    }
+}
+}
+
+.item.item-block .item-inner {
+    padding-right: 0px;
+    border-bottom: 0px solid #eeecf3;
+}
+
+.order-info .item.item-block .item-inner {
+    border-bottom: 0px solid #f2f2f2;
+}
+
+h4 {
+    font-size: 1.4rem;
+}
+

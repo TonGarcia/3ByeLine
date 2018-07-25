@@ -1,0 +1,156 @@
+<!--
+  Generated template for the OrderDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+ 
+	<ion-navbar>
+   <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    
+    <ion-title>Order Details</ion-title>
+	
+	<ion-buttons right>
+        <button style="background-color:white;">
+            <ion-icon name="ios-cart-outline" style="position:relative; font-size:2em;color:green;"  >
+                <span style="position:absolute; top:-.3em; left:.5em; font-size:15px !important">{{values.qty}}</span>
+            </ion-icon>
+        </button>
+    </ion-buttons>
+	
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="order-info">
+   <ion-spinner *ngIf="!orderDetails" name="crescent" style="display:block; margin-left: auto; margin-right:auto; margin-top: 5px; margin-bottom:5px" ></ion-spinner>
+
+<div *ngIf="orderDetails">
+
+<!--
+<ion-list padding class="items">
+  <ion-item *ngFor="let item of orderDetails.items">
+    <ion-thumbnail item-start>
+      <img src="{{item.image}}">
+    </ion-thumbnail>
+    <h2>{{item.name}}</h2>
+    <p>Price: {{item.price | currency:values.currency:true:'1.2-2'}}</p>
+    <p>Quantity: {{item.quantity}}</p>
+    <h2>Subtotal: {{1*item.price*item.quantity | currency:values.currency:true:'1.2-2'}}</h2>
+  </ion-item>
+</ion-list>
+-->
+
+      <ion-list style="margin:0;padding:10px;" >
+	  
+		<ion-item style="background-color: #88E5BB;">
+            <h1 style="margin: 0px;">Customer Details </h1>
+         </ion-item>
+		 
+		 <div style = "background-color:#CDF9E5">
+		  <ion-item style = "background-color:#CDF9E5">
+			<p>Name: <b>{{orderDetails.customerDetails.displayName}}</b></p>
+		  </ion-item>
+		  
+		  <ion-item style = "background-color:#CDF9E5">
+			<p>Email Id: <b>{{orderDetails.customerDetails.email}}</b></p>
+		  </ion-item>
+		  
+		  <ion-item style = "background-color:#CDF9E5">
+			<p>Phone Number: <b>{{orderDetails.customerDetails.phone}}</b></p>
+		  </ion-item>
+		  
+		  <ion-item style = "background-color:#CDF9E5">
+			<p>Address: <b>{{orderDetails.customerDetails.address}}</b></p>
+		  </ion-item>
+		  
+		  <ion-item style = "background-color:#CDF9E5">
+			<p>Date: <b>{{orderDetails.timeStamp | date}}</b></p>
+		  </ion-item>
+		 </div> 
+		  	
+		 <div style = "background-color:#CDF9E5">
+
+		 
+		 
+		 <ion-row class="label" style = "background-color:#CDF9E5;padding-left:15px;">
+            <ion-col width-75>
+               <ion-label no-margin>Payment Type:</ion-label>
+            </ion-col>
+            <ion-col width-25 text-right>
+               <ion-label no-margin>{{orderDetails.payments.PaymentType}}</ion-label>
+            </ion-col>
+         </ion-row>
+         <ion-row class="label" *ngIf="orderDetails.payments.id">
+            <ion-col width-75>
+               <ion-label no-margin>Transaction Id:</ion-label>
+            </ion-col>
+            <ion-col width-25 text-right>
+               <ion-label no-margin>{{orderDetails.payments.id}}</ion-label>
+            </ion-col>
+         </ion-row>
+         <ion-row class="label" *ngIf="orderDetails.payments.status">
+            <ion-col width-75>
+               <ion-label no-margin>Payment Status::</ion-label>
+            </ion-col>
+            <ion-col width-25 text-right>
+               <ion-label no-margin>{{orderDetails.payments.status}}</ion-label>
+            </ion-col>
+         </ion-row>
+         <ion-row class="label" *ngIf="orderDetails.payments.amount">
+            <ion-col width-75>
+               <ion-label no-margin>Charged Amount:</ion-label>
+            </ion-col>
+            <ion-col width-25 text-right>
+               <ion-label no-margin>{{orderDetails.payments.amount}}</ion-label>
+            </ion-col>
+         </ion-row>
+		 
+		 
+		 
+	  
+         </div>
+		 <div style = "padding-top:25px;">
+		 
+		 </div>
+		 <ion-item style="background-color: #88E5BB;">
+            <h1 style="margin: 0px;">Order Item Details </h1>
+         </ion-item>
+        
+		<ion-list class="items">
+		  <ion-item *ngFor="let item of orderDetails.items" style = "background-color:#D3F6E6">
+			<h2 style = "background-color:#85EFBF">{{item.name}}</h2>
+			<p>Price: {{item.price | currency:values.currency:true:'1.2-2'}}</p>
+			<p>Quantity: {{item.quantity}}</p>
+			<h2>Subtotal: {{1*item.price*item.quantity | currency:values.currency:true:'1.2-2'}}</h2>
+		  </ion-item>
+		</ion-list>
+		 
+		 <ion-row class="label">
+			 <ion-col width-75>
+				  <h1> <ion-label no-margin style = "text-align:right;"><b>Status</b></ion-label></h1>
+				</ion-col>
+				<ion-col width-25 text-right>
+				  <h1> <ion-label no-margin><b>{{orderDetails.status}}</b></ion-label></h1>
+				</ion-col>
+		</ion-row>
+		 
+		 <ion-row class="label">
+		 
+			
+            <ion-col width-75>
+              <h1> <ion-label no-margin style = "text-align:right;"><b>Totals</b></ion-label></h1>
+            </ion-col>
+            <ion-col width-25 text-right>
+              <h1> <ion-label no-margin><b>{{1*orderDetails.total | currency:values.currency:true:'1.2-2'}}</b></ion-label></h1>
+            </ion-col>
+         </ion-row>
+         
+      </ion-list>
+      <br>
+   </div>
+</ion-content>

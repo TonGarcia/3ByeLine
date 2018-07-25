@@ -1,0 +1,26 @@
+/*  #Style Example - List big image
+===========================================*/
+expandable-layout-1 {
+  // List big image Header
+  [collapsible-header] {
+    .input-wrapper {
+      display: block;
+    }
+  }
+  // List big image Body
+  [item-accordion] {
+    height: 0;
+    display: block !important;
+    -webkit-transition: all 300ms;
+    transition: all 300ms;
+    overflow: hidden;
+
+    &.active {
+      height: 352px !important;
+    }
+
+    img {
+      border-radius: $border-radius;
+    }
+  }
+}

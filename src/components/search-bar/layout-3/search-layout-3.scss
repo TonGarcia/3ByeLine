@@ -1,0 +1,25 @@
+/*  #Style Search - Field + Header 2
+===========================================*/
+search-bar-layout-3 {
+  // Header Top
+  [header-section] {
+    border-bottom: $item-divider-small;
+    padding: 9px;
+    // Headet title
+    [header-title] {
+      color: theme-colors('textColors', 'accentDark');
+      padding-left: 7px;
+    }
+  }
+  // Settings gradient image
+  [gradient] {
+    opacity: 1;
+    border-radius: 50%;
+    overflow: hidden;
+    height: 72px;
+    width: 72px;
+    margin-right: 16px !important;
+    position: relative;
+    @include darkening-blend-mode;
+  }
+}

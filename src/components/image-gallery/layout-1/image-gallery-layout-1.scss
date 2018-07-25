@@ -1,0 +1,29 @@
+/*  #Style Full gallery 1
+===========================================*/
+image-gallery-layout-1 {
+  ion-card {
+    position: relative;
+    height: 170px;
+    width: calc(100%) !important;
+    border-radius: $border-radius !important;
+    box-shadow: none !important;
+
+    &[background-size] {
+      @include darkening-blend-mode;
+    }
+  }
+
+  .card-md, .card-ios {
+    margin: 0 !important;
+  }
+
+  [gallery-description] {
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    bottom: 0;
+    min-height: 45px;
+    z-index: 9;
+  }
+}

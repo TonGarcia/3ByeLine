@@ -1,0 +1,9 @@
+<!-- Theme Tabs Header tab - text -->
+<ion-item transparent no-lines>
+    <h2 ion-title margin-top>{{data.title}}</h2>
+    <h1 ion-title text-wrap header-title no-margin>{{data.description}}</h1>
+</ion-item>
+<ion-tabs #tabs tabsPlacement='top' tabs-content>
+    <ion-tab [tabTitle]="item.title" [root]="item.page" *ngFor="let item of data.data;let i = index">
+    </ion-tab>
+</ion-tabs>

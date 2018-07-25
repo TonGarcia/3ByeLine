@@ -1,0 +1,29 @@
+<!-- Theme Sticky List Header - Product -->
+<ion-content has-header no-padding>
+  <div *ngIf="data != null">
+    <ion-list *ngFor="let item of data.items">
+      <!--Text Header Top-->
+      <ion-list-header no-lines header-title ion-affix [content]="content" style="background:light">
+        {{item.groupName}}
+      </ion-list-header>
+      <ion-card *ngFor="let element of item.items">
+        <!--Big Card -->
+        <img [src]="element.image1" alt="{{element.title}}" />
+        <ion-card-content no-padding (click)="onEvent('onItemClick', element.title, $event)">
+          <!--Gallery Card -->
+          <div list-images >
+            <div images background-size [ngStyle]="{'background-image': 'url(' + element.image2 + ')'}" title="{{element.title}}"></div>
+            <div images background-size [ngStyle]="{'background-image': 'url(' + element.image3 + ')'}" title="{{element.title}}"></div>
+            <div images background-size [ngStyle]="{'background-image': 'url(' + element.image4 + ')'}" title="{{element.title}}"></div>
+            <div images background-size [ngStyle]="{'background-image': 'url(' + element.image5 + ')'}" title="{{element.title}}"></div>
+          </div>
+          <!-- Card Title -->
+          <h2 card-title item-start text-wrap margin-top>{{element.title}}</h2>
+          <span span-large float-left>{{element.price}}</span>
+          <span padding-left new-category text-uppercase text-wrap float-left>{{element.subtitle}}</span>
+          <button ion-button round float-right  (click)="onEvent('onBuy', element, $event)">{{element.buy}}</button>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+  </div>
+</ion-content>

@@ -1,0 +1,23 @@
+/*  #Style Sticky List Header - Basic
+================================================*/
+sticky-list-header-layout-1 {
+  [ion-affix] {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    border-top: none !important;
+    color: theme-colors('textColors', 'accentDark');
+  }
+  // Avatar
+  ion-avatar {
+    filter: none;
+
+    img {
+      border-radius: $border-radius !important;
+    }
+  }
+  // Badge
+  ion-badge {
+    margin-top: 42px;
+  }
+}

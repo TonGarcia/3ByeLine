@@ -1,0 +1,22 @@
+/*  #Style Drag and drop - Medium item with avatar
+==========================================*/
+drag-and-drop-layout-3 {
+  // Reorder
+  ion-reorder {
+    max-width: 50px;
+    border-left: $item-divider-medium;
+
+    .ion-md-menu:before {
+      color: theme-colors('mainColors', 'secondary') !important;
+      font-size: icon-size('icon-medium') !important;
+    }
+  }
+
+  .item-inner {
+    padding-right: 0 !important;
+  }
+  // Footer Settings Background Images
+  .footer-md::before {
+    background-image: none;
+  }
+}

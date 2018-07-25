@@ -1,0 +1,43 @@
+<!--Theme Swipe To Dismiss - Small item + header-->
+<ion-grid no-padding>
+  <ion-row *ngIf="data != null">
+    <ion-col col-12>
+      <!--Header Small item + header-->
+      <ion-list-header header-section padding-bottom padding-horizontal>
+        <!--Header Big Title-->
+        <h1 header-title>{{data.header}}</h1>
+        <ion-item no-lines>
+          <!-- Title -->
+          <h2 item-title text-capitalize margin-top text-wrap>{{data.title}}</h2>
+          <!-- Subtitle -->
+          <p item-subtitle no-margin text-wrap>{{data.subtitle}}</p>
+          <button item-end ion-button button-clear-outline outline round (click)="onEvent('onButtonGetClick', '', $event)">{{data.button}}</button>
+        </ion-item>
+      </ion-list-header>
+      <!-- Content -->
+      <ion-list no-margin>
+        <ion-item-sliding *ngFor="let item of data.items" #slidingItem>
+          <ion-item border no-lines (click)="onEvent('onItemClick', item.title, $event)">
+            <!-- Title -->
+            <h2 item-title>{{item.title}}</h2>
+            <!-- Subtitle -->
+            <h3 item-subtitle>{{item.subtitle}}</h3>
+            <!-- Details Item-->
+            <ion-note item-end>{{item.textIcon}}</ion-note>
+            <!-- Icon -->
+            <ion-icon item-end color="primary" name="{{item.icon}}"></ion-icon>
+          </ion-item>
+          <!--Action Button-->
+          <ion-item-options no-lines>
+            <button ion-button color="green" text-capitalize (click)="undo(slidingItem)" padding>
+              {{item.reply}}
+            </button>
+            <button ion-button color="red" text-capitalize (click)="delete(item)" (tap)="onEvent('onDelete', item, $event)" padding>
+              {{item.delate}}
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>

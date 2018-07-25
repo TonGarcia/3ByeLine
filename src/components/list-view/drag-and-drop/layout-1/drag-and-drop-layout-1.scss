@@ -1,0 +1,21 @@
+/*  #Style Drag and drop - Small item + header
+================================================*/
+drag-and-drop-layout-1 {
+  ion-reorder {
+    max-width: 50px;
+    border-left: $item-divider-medium !important;
+
+    .ion-md-menu:before {
+      color: theme-colors('mainColors', 'secondary') !important;
+      font-size: icon-size('icon-medium') !important;
+    }
+  }
+
+  [button-clear] {
+    font-size: font-size-text('h4') !important;
+  }
+
+  .item-inner {
+    padding-right: 0 !important;
+  }
+}

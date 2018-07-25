@@ -1,14 +1,36 @@
-<ion-menu [content]="content">
+<ion-menu [content]="content" swipeEnabled="false">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu</ion-title>
+      <ion-title>Multi Restaurant Application</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
+  <ion-content *ngIf="userProfiles">
     <ion-list>
+	   <ion-item >
+      <ion-avatar item-start>
+          <ion-list style="margin:15px 0 0 0;font-family: Arial ">
+         <div *ngIf="userProfiles.photoURL" class="profile-image">
+            <img src="{{userProfiles.photoURL}}" width="80" height="80" style="display: block; margin-left: auto; margin-right: auto;">
+         </div>
+         <div *ngIf="!userProfiles.photoURL" class="profile-image">
+            <img src="{{values.avatar}}" width="80" height="80" style="display: block; margin-left: auto; margin-right: auto;">
+         </div>
+      </ion-list>
+      </ion-avatar>
+      <h2>{{userProfiles.displayName}}</h2>
+      
+    </ion-item>
+	
+	
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+		<ion-icon [name]="p.icon" item-left></ion-icon>
+        {{ p.title }}
+      </button>
+	  
+	  <button menuClose ion-item  (click)="logOut()">
+	  <ion-icon [name]="exit" item-left></ion-icon>
+        Log Out
       </button>
     </ion-list>
   </ion-content>

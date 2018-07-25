@@ -1,0 +1,39 @@
+<!--Theme Appearance animation (Fade In Right)-->
+<ion-content has-header>
+    <ion-grid no-padding *ngIf="data != null">
+        <ion-row>
+            <ion-col col-12>
+                <ion-list no-margin>
+                    <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of data.items; let i = index;" >
+                        <ion-avatar item-left (click)="getProductDetails(item.id)">
+                            <img [src]="item.image" alt="{{item.title}}" />
+                        </ion-avatar>
+                        <h2 item-title (click)="getProductDetails(item.id)">{{item.title}} </h2>
+						<p (click)="getProductDetails(item.id)">{{item.price}}$</p>
+						
+								 <ion-buttons right >
+					<button style="background-color:white;" (click)="editProduct(item)">
+						<ion-icon name="construct" style="position:relative; font-size:2em;color:green;"  >
+							<span style="position:absolute; top:-.3em; left:.5em; font-size:15px !important"></span>
+						</ion-icon>
+					</button>
+					<button style="background-color:white;" (click)="deleteProduct(item.id)">
+						<ion-icon name="trash" style="position:relative; font-size:2em;color:green;"  >
+							<span style="position:absolute; top:-.3em; left:.5em; font-size:15px !important"></span>
+						</ion-icon>
+					</button>
+				</ion-buttons>
+		
+						<!---
+                        <ion-icon icon-small item-right (click)="onEvent('onFavorite', item, $event)">
+                            <i class="icon" [ngClass]="{'icon-heart': item.favorite, 'icon-heart-outline': !item.favorite}"></i>
+                        </ion-icon>
+						-->
+                    </ion-item>
+					
+				
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,13 @@
+<!---Theme Gallery for Full gallery 2-->
+<ion-grid card-background-page no-padding *ngIf="data != null">
+    <ion-row>
+        <ion-col col-12 col-sm-4 col-md-6 col-lg-4 col-xl-3 *ngFor="let group of data.items;let i = index;">
+            <ion-card background-size (click)="openSubGallery(data, i)" [ngStyle]="{'background-image': 'url(' + group.image + ')'}">
+                <ion-card-content>
+                    <h2 gallery-title text-wrap>{{group.title}}</h2>
+                    <p gallery-subtitle text-wrap>{{group.subtitle}}</p>
+                </ion-card-content>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+</ion-grid>

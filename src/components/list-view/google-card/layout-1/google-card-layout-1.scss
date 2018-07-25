@@ -1,0 +1,31 @@
+/*  #Style Google Card - Full Image Cards
+================================================*/
+google-card-layout-1 {
+  // Settings Background Image
+  [card-background-page] {
+    ion-card {
+      position: relative;
+      height: 215px;
+      border-radius: $border-radius;
+      // @include darkening-blend-mode;
+      box-shadow: none;
+      margin-bottom: 16px;
+    }
+    // Card Title
+    [card-title] {
+      position: absolute;
+      padding: 22px;
+      font-size: font-size-text('h1') !important;
+      top: 0;
+      color: theme-colors('textColors', 'secondaryBase') !important;
+    }
+    // Card Subtitle
+    [card-subtitle] {
+      padding: 22px;
+      position: absolute;
+      bottom: 0;
+      width: 95%;
+      color: theme-colors('textColors', 'secondaryBase') !important;
+    }
+  }
+}

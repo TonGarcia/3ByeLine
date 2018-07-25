@@ -1,23 +1,25 @@
 <ion-header>
   <ion-navbar>
+  
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-title>Restaurants</ion-title>
+	
+	<ion-buttons right>
+        <button style="background-color:white;" (click)="goToCart()">
+            <ion-icon name="ios-cart-outline" style="position:relative; font-size:2em;color:green;"  >
+                <span style="position:absolute; top:-.3em; left:.5em; font-size:15px !important">{{values.qty}}</span>
+            </ion-icon>
+        </button>
+    </ion-buttons>
+	
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-end>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
-</ion-content>
+
+	<expandable-layout-2
+     [data]="params.data"
+     [events]="params.events">
+   </expandable-layout-2>
+

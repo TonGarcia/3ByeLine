@@ -1,0 +1,32 @@
+<!--Theme Appearance animation (Zoom In)-->
+<ion-content has-header>
+    <ion-grid no-padding *ngIf="data != null">
+        <ion-row>
+            <ion-col col-12>
+                <ion-list no-margin>
+                    <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of data.items; let i = index;" (click)="getCustomerDetails(item)">
+                        <ion-avatar item-left *ngIf="item.image != null">
+						
+							
+                            <img [src]="item.image" alt="{{item.title}}" />
+							
+							
+                        </ion-avatar>
+	
+						  <ion-avatar item-left *ngIf="item.image == null">
+						
+							<img [src]="item.image_url" alt="{{item.title}}" />
+                            
+							
+							
+                        </ion-avatar>
+	
+	
+                        <h2 item-title>{{item.title}}</h2>
+                      
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

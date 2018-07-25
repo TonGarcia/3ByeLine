@@ -1,0 +1,36 @@
+/*  #Style Drag and drop - Products + CTA header
+==========================================*/
+drag-and-drop-layout-2 {
+  [header-section] {
+    ion-item {
+      padding-left: 0;
+
+      [item-end] {
+        margin: 22px 0 0 !important;
+      }
+    }
+  }
+  // Badge
+  ion-badge {
+    margin-top: 43px;
+    margin-right: 8px;
+  }
+
+  .item-inner {
+    padding-right: 0 !important;
+  }
+  // Avatar Radius
+  ion-avatar img {
+    border-radius: $border-radius !important;
+  }
+  // Settings Reorder
+  ion-reorder {
+    max-width: 50px;
+    border-left: $item-divider-medium;
+
+    .ion-md-menu:before {
+      color: theme-colors('mainColors', 'secondary') !important;
+      font-size: icon-size('icon-medium') !important;
+    }
+  }
+}

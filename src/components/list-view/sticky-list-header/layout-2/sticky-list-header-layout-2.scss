@@ -1,0 +1,62 @@
+/*  #Style Sticky List Header - Product
+================================================*/
+sticky-list-header-layout-2 {
+  [ion-affix] {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    border-top: none !important;
+    color: theme-colors('textColors', 'accentDark');
+    border-bottom: $item-divider-small;
+  }
+  // Settings Card
+  ion-card {
+    border-radius: 0 !important;
+    margin-top: 18px !important;
+    padding-bottom: 18px;
+    border-bottom: $item-divider-small;
+    box-shadow: none !important;
+
+    img {
+      border-radius: $border-radius !important;
+    }
+
+    ion-card-content {
+      [list-images] {
+        margin-top: 6px !important;
+        overflow: hidden;
+
+        [images] {
+          width: 23.5% !important;
+          display: block;
+          float: left;
+          min-height: 80px;
+          margin-right: 2%;
+          border-radius: $border-radius;
+        }
+
+        [card-title]{
+          padding-right: 85px;
+        }
+
+        [images]:last-child {
+          margin-right: 0 !important;
+        }
+      }
+
+      button {
+        box-shadow: none !important;
+        margin-top: -5px !important;
+        height: 28px !important;
+        padding: 0 15px !important;
+      }
+
+      [new-category] {
+        font-size: 11px;
+        color: theme-colors('textColors', 'accent');
+        letter-spacing: 1px;
+        padding-top: 13px;
+      }
+    }
+  }
+}

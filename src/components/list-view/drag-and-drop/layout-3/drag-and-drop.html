@@ -1,0 +1,35 @@
+<!-- Themes Drag and drop - Medium item with avatar-->
+<ion-content has-header>
+  <ion-grid no-padding *ngIf="data != null">
+    <ion-row>
+      <ion-col col-12>
+        <!-- Header Medium item with avatar-->
+        <ion-list-header header-section>
+          <h1 header-title text-capitalize>{{data.header}}</h1>
+        </ion-list-header>
+        <!-- Content Medium Item With Avatar-->
+        <ion-list reorder="true" (ionItemReorder)="reorderItems($event)">
+          <ion-item border no-lines *ngFor="let item of data.items; let i = index;"
+          (click)="onEvent('onItemClick', item.title, $event)">
+            <!--Avatar-->
+            <ion-avatar item-left>
+              <img [src]="item.image">
+            </ion-avatar>
+            <!--Title-->
+            <h2 item-title>{{item.title}}</h2>
+            <!--Subtitle-->
+            <h3 item-subtitle>{{item.subtitle}}</h3>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<!--Footer-->
+<ion-footer no-lines padding-horizontal>
+  <ion-toolbar padding-bottom >
+    <!--Footer Button-->
+    <button default-button text-capitalize ion-button block *ngIf="data != null"
+    (click)="onEvent('onButtonClick', null, $event)">{{data.button}}</button>
+  </ion-toolbar>
+</ion-footer>

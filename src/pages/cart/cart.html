@@ -1,0 +1,108 @@
+<!--
+  Generated template for the CartPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  
+    <ion-title>My Cart</ion-title>
+	
+	<ion-buttons right>
+        <button style="background-color:white;">
+            <ion-icon name="ios-cart-outline" style="position:relative; font-size:2em;color:green;"  >
+                <span style="position:absolute; top:-.3em; left:.5em; font-size:15px !important">{{values.qty}}</span>
+            </ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+   <ion-spinner *ngIf="!service.cart" name="crescent" style="display:block; margin-left: auto; margin-right:auto; margin-top: 5px; margin-bottom:5px" ></ion-spinner>
+   <div *ngIf="service.cart">
+      <div  *ngIf="service.cart.line_items.length == 0" style="margin:60px 10px 0 10px;">
+         <P style="text-align:center"> <img height="160px" src="assets/images/empty-bag.png"> </P>
+         <div *ngIf="service.cart.line_items.length == 0" style="text-align:center">
+            <button ion-button clear color="danger" round>{{"Yourcartisempty!" | translate}}</button>
+         </div>
+      </div>
+      <div *ngIf="service.cart.line_items">
+
+         <div *ngIf="service.cart.line_items.length != 0">
+            <ion-item no-lines class="item-name">
+               <ion-label text-uppercase>{{"Cart" | translate}}</ion-label>
+            </ion-item>
+            <ion-list style="margin-left:5px; margin-right:5px;">
+               <ion-item  *ngFor="let item of service.cart.line_items" >
+				<ion-avatar item-left>
+                            <img [src]="item.image" alt="{{item.title}}" />
+                        </ion-avatar>
+            
+                  <h3 wrap-text style="font-size:15.5px;">{{item.name}}</h3>
+                  <h4 wrap-text > Price: <span>{{1*item.price | currency:values.currency:true:'1.2-2'}}</span></h4>
+                  <h4 wrap-text> Sub-Total: <span>{{1*item.price*item.quantity | currency:values.currency:true:'1.2-2'  }}</span></h4>
+                  <button ion-button icon-only class="has-icon icon-only" no-margin item-right clear color="shadow" (click)="deleteFromCart(item.product_id)">
+                     <ion-icon ios="ios-remove-circle-outline" md="ios-remove-circle-outline"></ion-icon>
+                  </button>
+                  <h6 item-right color="shadow" class="quantity">{{item.quantity}}</h6>
+                  <button ion-button icon-only class="has-icon icon-only" no-margin item-right clear color="shadow" (click)="addToCart(item.product_id)">
+                     <ion-icon ios="ios-add-circle-outline" md="ios-add-circle-outline"></ion-icon>
+                  </button>
+               </ion-item>
+               <br>
+               <ion-row class="label">
+                  <ion-col width-75>
+                     <ion-label no-margin><b>Totals</b></ion-label>
+                  </ion-col>
+                  <ion-col width-25 text-right>
+                     <ion-label no-margin><b>{{1*service.total | currency:values.currency:true:'1.2-2'}}</b></ion-label>
+                  </ion-col>
+               </ion-row>
+            </ion-list>
+			
+			<div>
+               <ion-list style="margin:0px" text-wrap radio-group [(ngModel)]="form.payment_method">
+               <ion-item no-lines class="item-name">
+                  <ion-label> {{"SelectPaymentMethod" | translate}}</ion-label>
+               </ion-item>
+               <!---
+			   <ion-item >
+                  <ion-label style="padding-left:15px">{{"ProceedtopayPal" | translate}}</ion-label>
+                  <ion-radio value="paypal" checked></ion-radio>
+               </ion-item>
+               <ion-item >
+                  <ion-label style="padding-left:15px">Stripe</ion-label>
+                  <ion-radio value="stripe"></ion-radio>
+               </ion-item>
+			   --->
+               <ion-item>
+                  <ion-label style="padding-left:15px">Cash On Delivery</ion-label>
+                  <ion-radio value="cod"></ion-radio>
+               </ion-item>
+			   <ion-item>
+                  <ion-label style="padding-left:15px">With bank account</ion-label>
+                  <ion-radio value="bank"></ion-radio>
+               </ion-item>
+			   <ion-item>
+                  <ion-label style="padding-left:15px">Credit Cart</ion-label>
+                  <ion-radio value="cart"></ion-radio>
+               </ion-item>
+               </ion-list>
+            </div>
+			
+           <div style="margin: 10px 5px;">
+               <button ion-button no-margin item-right full color="shadow" [disabled]="disableSubmit" (click)="placeOrder(service.cart.line_items)">{{"Continue" | translate}}</button>
+            </div>
+         </div>
+      </div>
+   </div>
+
+</ion-content>

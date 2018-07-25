@@ -1,0 +1,69 @@
+<!-- Theme Google Maps - Gmaps + About Us -->
+<ion-header>
+    <ion-navbar transparent>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title *ngIf="data != null" text-left>{{data.headerTitle}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<!--Content -->
+<ion-content elastic-header>
+    <div id="elastic-header">
+        <agm-map *ngIf="data != null" [latitude]="data.map.lat" [longitude]="data.map.lng" [zoom]="data.map.zoom" [mapTypeControl]="data.map.mapTypeControl" [streetViewControl]="data.map.streetViewControl">
+            <agm-marker [latitude]="data.map.lat" [longitude]="data.map.lng"></agm-marker>
+        </agm-map>
+    </div>
+    <ion-grid no-padding *ngIf="data != null">
+        <ion-row>
+            <ion-col col-12 map-header>
+                <ion-item lines no-padding>
+                    <!--Maps Title-->
+                    <h1 padding-left maps-title margin-top text-wrap>{{data.title}}</h1>
+                    <!--Parallax Rateing-->
+                    <div padding-left>
+                        <ion-icon float-left *ngFor="let item of data.iconsStars;let i = index" (click)="onStarClass(data.iconsStars, i, $event)">
+                            <i icon-small *ngIf="item.isActive" class="icon {{item.iconActive}}"></i>
+                            <i icon-small *ngIf="!item.isActive" class="icon {{item.iconInactive}}"></i>
+                        </ion-icon>
+                    </div>
+                    <span span-small margin-left>{{data.reviews}}</span>
+                </ion-item>
+            </ion-col>
+            <!---Content-->
+            <ion-col col-12 map-content transparent>
+                <ion-item-group>
+                    <ion-item-divider no-lines>
+                        <h2 maps-description-title text-wrap margin-bottom>{{data.contentTitle}}</h2>
+                        <p maps-description text-wrap>{{data.contentDescription}}</p>
+                    </ion-item-divider>
+                    <!--Info Location-->
+                    <ion-item border>
+                        <ion-icon icon-medium name="{{data.icon}}" item-start></ion-icon>
+                        <h2 no-paddnig>{{data.location}}</h2>
+                    </ion-item>
+                    <!--Info Time-->
+                    <ion-item border>
+                        <ion-icon icon-medium name="{{data.icon}}" item-start></ion-icon>
+                        <h2 no-paddnig>{{data.time}}</h2>
+                    </ion-item>
+                    <!--Info Phone-->
+                    <ion-item border>
+                        <ion-icon icon-medium name="{{data.icon}}" item-start></ion-icon>
+                        <h2 no-paddnig>{{data.phone}}</h2>
+                    </ion-item>
+                    <!--Info WebSite-->
+                    <ion-item border>
+                        <ion-icon icon-medium name="{{data.icon}}" item-start></ion-icon>
+                        <h2 no-paddnig>{{data.webSite}}</h2>
+                    </ion-item>
+                    <!--Info Email-->
+                    <ion-item border>
+                        <ion-icon icon-medium name="{{data.icon}}" item-start></ion-icon>
+                        <h2 no-paddnig>{{data.email}}</h2>
+                    </ion-item>
+                </ion-item-group>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

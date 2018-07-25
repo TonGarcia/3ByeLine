@@ -1,0 +1,79 @@
+/*  #Style Parallax - News
+===========================================*/
+parallax-layout-4 {
+  // Animation
+  @include settingAnimationHeader;
+  // Settings Animation Text Color
+  @-webkit-keyframes color-change {
+    0% {
+      color: theme-colors('mainColors', 'primary');
+    }
+
+    100% {
+      color: theme-colors('textColors', 'accent') !important;
+    }
+  }
+
+  .active .back-button,
+  .active .toolbar-title {
+    color: theme-colors('textColors', 'accent') !important;
+    animation-name: color-change;
+    animation-duration: 400ms;
+  }
+
+  .back-button,
+  .toolbar-title {
+    color: theme-colors('textColors', 'secondaryBase') !important;
+  }
+
+  .scroll-content {
+    top: -56px;
+  }
+  // Parallax Big Images
+  [background-size] {
+    height: 250px;
+    position: relative;
+    @include darkening-blend-mode;
+
+    [title-block] {
+      position: absolute;
+      bottom: 0;
+      padding: 16px 25px 16px 0;
+      // New Category
+      [new-category] {
+        color: theme-colors('textColors', 'secondaryBase');
+        font-size: 11px;
+        letter-spacing: 1px;
+      }
+      // Parallax Title
+      [parallax-title] {
+        color: theme-colors('textColors', 'secondaryBase');
+        font-size: font-size-text('h2') !important;
+        font-weight: 400;
+        line-height: 34px;
+      }
+    }
+  }
+  // Settings Avatar
+  ion-avatar {
+    min-width: 48px !important;
+    min-height: 48px !important;
+
+    img {
+      width: 48px !important;
+      height: 48px !important;
+    }
+  }
+  // Content Title
+  [parallax-subtitle] {
+    color: theme-colors('textColors', 'accentDark');
+    font-size: font-size-text('h4') !important;
+    line-height: 20px;
+  }
+  // Content Description
+  [parallax-description] {
+    font-size: font-size-text('h6') !important;
+    color: theme-colors('textColors', 'secondary') !important;
+    line-height: 20px;
+  }
+}

@@ -1,0 +1,28 @@
+/*  #Style Full gallery 2
+===========================================*/
+
+image-gallery-layout-2 {
+    [card-background-page] {
+        ion-card {
+            height: 160px;
+            position: relative;
+            text-align: center;
+            box-shadow: none;
+            border-radius: $border-radius;
+        }
+        ion-card-content {
+            position: absolute !important;
+            top: 20% !important;
+            width: 96%;
+            left: 2%;
+        }
+        [gallery-title] {
+            font-size: font-size-text('h1') !important;
+            color: theme-colors('textColors', 'accentDark') !important;
+            font-weight: 700;
+        }
+        [gallery-subtitle] {
+            color: theme-colors('textColors', 'accentDark') !important;
+        }
+    }
+}

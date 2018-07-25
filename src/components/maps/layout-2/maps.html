@@ -1,0 +1,75 @@
+<!-- Thema Google Maps - Gmaps + About Us-->
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title *ngIf="data != null" text-left>{{data.headerTitle}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<!-- Content -->
+<ion-content>
+    <div header-section *ngIf="data != null">
+        <h1 header-title no-margin padding-left text-wrap>{{data.title}}</h1>
+    </div>
+    <ion-grid no-padding *ngIf="data != null">
+        <ion-row>
+            <!---About Name-->
+            <ion-col col-12>
+                <ion-item map-header no-lines>
+                    <h1 maps-title text-wrap>{{data.titleDescription}}</h1>
+                </ion-item>
+            </ion-col>
+            <!---Content About Us-->
+            <ion-col col-12 map-content transparent>
+                <ion-item-group>
+                    <ion-item-divider no-lines>
+                        <h2 maps-description-title text-wrap margin-bottom>{{data.contentTitle}}</h2>
+                        <p maps-description text-wrap>{{data.contentDescription}}</p>
+                    </ion-item-divider>
+                    <!--Info Location-->
+                    <ion-item border>
+                        <ion-icon icon-medium name="{{data.icon}}" item-start></ion-icon>
+                        <h2 no-paddnig>{{data.location}}</h2>
+                    </ion-item>
+                    <!--Info Time-->
+                    <ion-item border>
+                        <ion-icon icon-medium name="{{data.icon}}" item-start></ion-icon>
+                        <h2 no-paddnig>{{data.time}}</h2>
+                    </ion-item>
+                    <!--Info Phone-->
+                    <ion-item border>
+                        <ion-icon icon-medium name="{{data.icon}}" item-start></ion-icon>
+                        <h2 no-paddnig>{{data.phone}}</h2>
+                    </ion-item>
+                    <!--Info WebSite-->
+                    <ion-item border>
+                        <ion-icon icon-medium name="{{data.icon}}" item-start></ion-icon>
+                        <h2 no-paddnig>{{data.webSite}}</h2>
+                    </ion-item>
+                    <!--Info Email-->
+                    <ion-item border>
+                        <ion-icon icon-medium name="{{data.icon}}" item-start></ion-icon>
+                        <h2 no-paddnig>{{data.email}}</h2>
+                    </ion-item>
+                </ion-item-group>
+            </ion-col>
+        </ion-row>
+        <!---MAP TEXT-->
+        <ion-row>
+            <ion-col col-12>
+                <ion-item no-lines>
+                    <h2 title>{{data.titleMap}}</h2>
+                </ion-item>
+            </ion-col>
+            <!---MAP-->
+        </ion-row>
+        <ion-row>
+            <ion-col col-12>
+                <agm-map [latitude]="data.map.lat" [longitude]="data.map.lng" [zoom]="data.map.zoom" [mapTypeControl]="data.map.mapTypeControl" [streetViewControl]="data.map.streetViewControl">
+                    <agm-marker [latitude]="data.map.lat" [longitude]="data.map.lng"></agm-marker>
+                </agm-map>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

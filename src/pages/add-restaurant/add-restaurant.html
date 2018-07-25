@@ -1,0 +1,92 @@
+<!--
+  Generated template for the AddRestaurantPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+ <ion-navbar>
+  <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Add Restaurant</ion-title>
+	
+	<ion-buttons right>
+        <button style="background-color:white;" (click)="goToCart()">
+            <ion-icon name="ios-cart-outline" style="position:relative; font-size:2em;color:green;"  >
+                <span style="position:absolute; top:-.3em; left:.5em; font-size:15px !important"></span>
+            </ion-icon>
+        </button>
+    </ion-buttons>
+</ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<div style="margin:20px 10px 0 10px;">
+      <form #f="ngForm">
+         <ion-list>
+            <ion-item>
+               <ion-label floating>Name</ion-label>
+               <ion-input required type="text" [(ngModel)]="form.name" name="name"></ion-input>
+            </ion-item>
+			
+			 
+			
+			 <ion-item>
+               <ion-label floating>Info</ion-label>
+               <ion-input required type="text" [(ngModel)]="form.info" name="info"></ion-input>
+            </ion-item>
+			
+			 <ion-item>
+               <ion-label floating>Latitude</ion-label>
+               <ion-input required type="text" [(ngModel)]="form.lat" name="lat"></ion-input>
+            </ion-item>
+			
+			 <ion-item>
+               <ion-label floating>Longitude</ion-label>
+               <ion-input required type="text" [(ngModel)]="form.long" name="long"></ion-input>
+            </ion-item>
+			
+			 <ion-item>
+               <ion-label floating>Mark</ion-label>
+               <ion-input required type="text" [(ngModel)]="form.mark" name="mark"></ion-input>
+            </ion-item>
+			
+			<ion-item>
+               <ion-label floating>Options</ion-label>
+               <ion-input required type="text" [(ngModel)]="form.options" name="options"></ion-input>
+            </ion-item>
+			
+			<ion-item>
+               <ion-label floating>Outlet</ion-label>
+               <ion-input required type="text" [(ngModel)]="form.outlet" name="outlet"></ion-input>
+            </ion-item>
+			
+			<ion-item>
+               <ion-label floating>Phonenumber</ion-label>
+               <ion-input required type="text" [(ngModel)]="form.phonenumber" name="phonenumber"></ion-input>
+            </ion-item>
+			
+			 <ion-item>
+               <textarea class="example"  type="text" [(ngModel)]="form.address" name="address" placeholder='Address'></textarea>
+            </ion-item>
+			
+            <ion-item>
+               <textarea class="example"  type="text" [(ngModel)]="form.description" name="description" placeholder='Address Description'></textarea>
+            </ion-item>
+			
+            <ion-item>
+               <ion-thumbnail *ngIf="downloadURL != null">
+                  <img src="{{downloadURL}}">
+               </ion-thumbnail>
+               <input type="file" name="select Image" (change)="onChange($event)" >
+            </ion-item>
+         </ion-list>
+      </form>
+      <div class="error-message">
+           <ion-label color="danger" text-wrap>{{errorMessage}}</ion-label>
+      </div>
+         <button ion-button block color="secondary" [disabled]="disableSubmit" text-uppercase (click)="addCategry()">Add Category</button>
+   </div>
+</ion-content>

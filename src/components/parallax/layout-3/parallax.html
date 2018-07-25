@@ -1,0 +1,93 @@
+<!--- Theme Parallax - Product -->
+<ion-header header-ios>
+  <ion-navbar transparent [ngClass]="{'active':isClassActive()}">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="data != null" text-left>{{data.name}}</ion-title>
+	
+		<ion-buttons right>
+        <button style="background-color:white;" (click)="goToCart()">
+            <ion-icon name="ios-cart-outline" style="position:relative; font-size:2em;color:green;"  >
+                <span style="position:absolute; top:-.3em; left:.5em; font-size:15px !important">{{values.qty}}</span>
+            </ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content elastic-header>
+  <!-- Parallax Big Image -->
+  <ion-item no-lines background-size id="elastic-header" [ngStyle]="{'background-image': 'url(' + data.image_firebase_url + ')'}">
+  
+  
+  <!--
+		<ion-icon icon-big item-right color="primary" (click)="addToFavourite(data)"  style="padding-right:25px;padding-top:120px;">
+                            <i class="icon" [ngClass]="{'icon-heart': data.favorite, 'icon-heart-outline': !data.favorite}"></i>
+            </ion-icon>
+			
+			
+			
+			-->
+			
+			
+			 
+	<ion-icon icon-big item-right color="primary" (click)="addToFavourite(data)"  style="padding-top:120px;">
+                   <i [ngClass]="{'icon-heart-outline': !favorite}" ></i>
+				   
+	</ion-icon>
+	
+	<ion-icon icon-big item-right color="primary" (click)="removeFavourite()"  style="padding-top:120px;">
+                  <i [ngClass]="{'icon-heart': favorite}" ></i>
+	</ion-icon>
+	
+
+	
+	
+				
+						<!----
+    <button ion-fixed item-end ion-button color="primary" button-action-shit *ngIf="data != null" (click)="onEvent('onShare', data)">
+		<ion-icon icon-small item-right (click)="onEvent('onFavorite', data, $event)">
+                            <i class="icon" [ngClass]="{'icon-heart': data.favorite, 'icon-heart-outline': !data.favorite}"></i>
+                        </ion-icon>
+	
+	
+        <ion-icon  name="heart"></ion-icon>
+		
+      </button>
+	  -->
+  </ion-item>
+  <!--Content-->
+  <ion-grid no-padding *ngIf="data != null">
+    <ion-row>
+      <ion-col col-12>
+        <ion-list no-margin>
+          <ion-item-group (click)="onEvent('onItemClick', data)">
+            <ion-item-divider no-lines>
+              <!-- Name Category-->
+            <!--  <span new-category margin-top text-uppercase>{{data.name}}</span> --->
+              <!-- Parallax Title -->
+              <h2 new-category text-uppercase>{{data.name}}</h2>
+              <!-- Parallax Subtitle -->
+              <!---<h3 parallax-subtitle text-wrap>{{data.description}}</h3>--->
+              <ion-badge item-end text-uppercase class="badge-dark" (click)="onEvent('onProceed', data, $event)">{{data.price}}$</ion-badge>
+            </ion-item-divider>
+			
+			
+            <!-- Description Products -->
+            <ion-item border no-lines no-margin>
+              <p parallax-description text-wrap>{{data.description}}</p>
+            </ion-item>
+			
+			
+          
+          </ion-item-group>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer no-shadow>
+	<ion-toolbar position="bottom">
+		<button ion-button full (click)="addToCart( data.name, data.price, data.image_firebase_url )">Order</button>
+	</ion-toolbar>
+</ion-footer>

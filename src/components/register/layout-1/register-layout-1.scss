@@ -1,0 +1,32 @@
+/*  #Style Register + logo
+================================================*/
+
+register-layout-1 {
+  ion-grid,
+  ion-row {
+    height: 100%;
+  }
+  // Avatar
+  ion-thumbnail {
+    display: block;
+    clear: both;
+    filter: none;
+    opacity: 1;
+
+    img {
+      max-width: 50px;
+      max-height: 50px;
+    }
+  }
+  // Title
+  [title] {
+    margin-right: 20%;
+    font-size: font-size-text('h1') !important;
+    font-weight: bold;
+    line-height: 34px;
+  }
+
+  [stacked] {
+    font-size: 10px !important;
+  }
+}

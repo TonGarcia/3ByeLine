@@ -1,0 +1,47 @@
+/*  #Style Parallax - Profile
+===========================================*/
+parallax-layout-2 {
+  @include settingAnimationHeader;
+  @-webkit-keyframes color-change {
+    0% {
+      color: theme-colors('mainColors', 'primary');
+    }
+
+    100% {
+      color: theme-colors('textColors', 'accent') !important;
+    }
+  }
+
+  .active .back-button,
+  .active .toolbar-title {
+    color: theme-colors('textColors', 'accent') !important;
+    animation-name: color-change;
+    animation-duration: 400ms;
+  }
+
+  .back-button,
+  .toolbar-title {
+    color: theme-colors('textColors', 'secondaryBase') !important;
+  }
+
+  .scroll-content {
+    top: -56px;
+  }
+
+  [background-size] {
+    @include darkening-blend-mode;
+    height: 250px;
+    position: relative;
+
+    ion-thumbnail {
+      opacity: 1 !important;
+
+      img {
+        border-radius: 50% !important;
+        height: 92px;
+        width: 92px;
+        margin: 20px auto 0;
+      }
+    }
+  }
+}

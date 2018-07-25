@@ -1,0 +1,43 @@
+/*  # Style Tabs Header tab - text
+==================================*/
+
+tabs-layout-3 {
+  .tabs[tabsPlacement="top"] > .tabbar::after {
+    height: 200px !important;
+  }
+
+  ion-item {
+    position: relative;
+    z-index: 9999;
+
+    [header-title],
+    h2 {
+      color: theme-colors('textColors', 'secondaryBase');
+
+      &[margin-top] {
+        margin-top: 30px !important;
+      }
+    }
+  }
+
+  .tabs-ios .tabbar,
+  .tabs-md .tabbar {
+    background: url("../assets/images/background/14.jpg") !important;
+    background-repeat: no-repeat;
+    background-size: cover !important;
+    min-height: 200px;
+    border-bottom: $item-divider-small;
+    @include darkening-blend-mode;
+  }
+
+  .tab-button {
+    align-self: flex-end;
+    background: theme-colors('mainColors', 'primary');
+    z-index: 999;
+    position: relative;
+
+    .tab-button-text {
+      text-transform: capitalize !important;
+    }
+  }
+}

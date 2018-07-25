@@ -1,0 +1,45 @@
+<!-- Themes Example - Centered with header -->
+<ion-content has-header>
+  <ion-grid no-padding *ngIf="data != null">
+    <ion-row>
+      <ion-col col-12 no-padding no-margin>
+        <ion-list-header header-section>
+          <h1 header-title>{{data.header}}</h1>
+        </ion-list-header>
+        <ion-list no-lines>
+          <ul no-margin no-padding class="collapsible">
+            <li no-margin *ngFor="let group of data.items;">
+              <!-- Expandable Centered with header Header-->
+              <div class="collapsible-header" no-margin no-padding (click)="toggleGroup(group)">
+                <ion-item border no-lines>
+                  <h2 item-title text-capitalize>{{group.title}}</h2>
+                  <ion-icon icon-small item-end>
+                    <i class="icon {{group.icon}}"></i>
+                  </ion-icon>
+                </ion-item>
+              </div>
+              <!-- End Expandable Centered with header Header-->
+              <!-- Expandable Centered with header Body -->
+              <div class="item-accordion" [ngClass]="{'active': isGroupShown(group) }"
+              [hidden]="!isGroupShown(group)">
+                <ion-item border no-lines *ngFor="let item of group.expandItems;"
+                (tap)="onEvent('onCheckBoxClick', item, $event);">
+                  <ion-label item-title text-uppercase>{{item.title}}</ion-label>
+                  <ion-checkbox [checked]="item.isChecked"></ion-checkbox>
+                </ion-item>
+              </div>
+              <!-- End Expandable Centered with header Body -->
+            </li>
+          </ul>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer no-lines  padding-horizontal>
+  <ion-toolbar padding-bottom>
+    <!-- Footer Button -->
+    <button default-button text-capitalize ion-button block *ngIf="data != null"
+    (click)="onEvent('onButtonClick', null, $event)">{{data.button}}</button>
+  </ion-toolbar>
+</ion-footer>

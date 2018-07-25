@@ -1,0 +1,21 @@
+<!-- #Theme Google Maps - Full Screen Views -->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="data != null" text-left>{{data.headerTitle}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<!--Content -->
+<ion-content>
+  <div header-section *ngIf="data != null">
+    <!-- Content Big Title -->
+    <h1 header-title no-margin padding-left text-wrap>{{data.title}}</h1>
+  </div>
+  <agm-map *ngIf="data != null" [latitude]="data.map.lat" [longitude]="data.map.lng" [zoom]="data.map.zoom" [mapTypeControl]="data.map.mapTypeControl"
+    [streetViewControl]="data.map.streetViewControl">
+    <agm-marker [latitude]="data.map.lat" [longitude]="data.map.lng">
+    </agm-marker>
+  </agm-map>
+</ion-content>

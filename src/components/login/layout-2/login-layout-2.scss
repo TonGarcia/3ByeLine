@@ -1,0 +1,47 @@
+/*  #Style Login + logo 2
+================================================*/
+login-layout-2 {
+  ion-grid,
+  ion-row {
+    height: 100%;
+  }
+  // Settings Logo
+  img {
+    position: absolute;
+    bottom: 20px;
+    right: 16px;
+    max-width: 56px;
+    max-height: 56px;
+  }
+
+  [stacked] {
+    font-size: 10px !important;
+  }
+  // Title
+  [login-title] {
+    color: theme-colors('textColors', 'accent') !important;
+    padding-right: 60px;
+  }
+  // Subtitle
+  [login-subtitle] {
+    font-weight: 100;
+    padding-right: 60px;
+    letter-spacing: 1px;
+  }
+  // Socila Button
+  [social] {
+    margin: 20px auto 10px;
+    overflow: hidden;
+
+    button {
+      margin: 1%;
+      width: 48.5%;
+      display: block;
+      float: left;
+    }
+
+    > button:nth-child(2n) {
+      margin-right: 0;
+    }
+  }
+}

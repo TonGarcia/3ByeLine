@@ -1,0 +1,41 @@
+<!--- Theme Parallax - News -->
+<ion-header header-ios>
+  <ion-navbar transparent [ngClass]="{'active':isClassActive()}">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="data != null" text-left>{{data.headerTitle}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<!--- Header Big Image-->
+<ion-content elastic-header>
+  <ion-item no-lines background-size id="elastic-header" [ngStyle]="{'background-image': 'url(' + headerImage + ')'}">
+    <div title-block *ngIf="data != null">
+      <!--- Category -->
+      <span new-category>{{data.category}}</span>
+      <!--- Parallax Title -->
+      <h1 parallax-title text-wrap>{{data.title}}</h1>
+    </div>
+  </ion-item>
+  <ion-item-group *ngIf="data != null">
+    <ion-item-divider border no-lines>
+      <!--- Avatar -->
+      <ion-avatar item-start>
+        <img [src]="data.avatar" />
+      </ion-avatar>
+      <!-- Avatar Title -->
+      <h2 item-subtitle>{{data.subtitle}}</h2>
+      <!--- Button Share-->
+      <button item-end ion-button color="primary" button-action-shit (click)="onEvent('onShare', data)">
+        <ion-icon name="{{data.shareIcon}}"></ion-icon>
+      </button>
+    </ion-item-divider>
+    <!-- Content -->
+    <ion-item no-margin no-lines *ngFor="let item of data.items;let i = index">
+      <!-- Content Title-->
+      <h2 parallax-subtitle margin-bottom text-wrap>{{item.title}}</h2>
+      <!-- Content Description-->
+      <p parallax-description text-wrap>{{item.subtitle}}</p>
+    </ion-item>
+  </ion-item-group>
+</ion-content>

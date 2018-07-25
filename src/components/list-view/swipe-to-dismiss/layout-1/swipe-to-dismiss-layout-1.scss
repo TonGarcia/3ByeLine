@@ -1,0 +1,29 @@
+/*  # Themes Swipe To Dismiss - Small item + header
+================================================*/
+swipe-to-dismiss-layout-1 {
+  // Settings Top Header
+  [header-section] {
+    ion-item {
+      padding-left: 0;
+
+      [item-end] {
+        margin: 22px 0 0 !important;
+      }
+    }
+  }
+
+  .item-ios [item-end],
+  .item-md [item-end] {
+    margin: 9px 0;
+  }
+  // Details Button Swipe-list
+  ion-item-options {
+    border-bottom: 1px solid theme-colors('mainColors', 'secondary') !important;
+
+    button {
+      color: theme-colors('textColors', 'secondaryBase');
+      letter-spacing: 1px;
+      font-size: font-size-text('h4') !important;
+    }
+  }
+}

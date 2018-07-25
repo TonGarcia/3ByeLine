@@ -1,0 +1,34 @@
+/*  #Style Wizard Big image
+===========================================*/
+wizard-layout-2 {
+  // Settings Content
+  ion-slides {
+    display: block;
+    width: 100%;
+    height: 90%;
+
+    .slide-zoom {
+      height: 100%;
+
+      [background-size] {
+        height: 50%;
+      }
+    }
+    // Settings Subtitle
+    [wizard-subtitle] {
+      color: theme-colors('textColors', 'accent');
+    }
+    // Settings Title
+    [wizard-title] {
+      color: #EFEFF4;
+    }
+  }
+  // Pagination
+  .swiper-slide {
+    display: block !important;
+  }
+
+  .swiper-pagination-bullet {
+    background: #292F36 !important;
+  }
+}
